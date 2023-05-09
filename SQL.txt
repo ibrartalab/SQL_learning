@@ -1,0 +1,61 @@
+#creating the first table
+CREATE TABLE student(
+    student_id INT PRIMARY KEY,
+    name VARCHAR (20) NOT NULL,
+    major VARCHAR DEFAULT('undecided')(20)
+);
+#show all the data from the table
+SELECT * FROM student;
+#see the entire structure of the table
+DESCRIBE student;
+#delete the entire table from the database
+DROP TABLE student;
+#add a new attribute/column into the specific table
+ALTER TABLE student ADD gpa DECIMAL(3,2);
+#remove/delete the column from the specific table
+ALTER TABLE student DROP COLUMN gpa;
+#insert data into the table.DML.
+INSERT INTO student VALUES(1,'khan','Biology',3.43);
+#now we are going to insert multiple data in a single query.
+INSERT INTO student VALUES(
+    2,'ibrar','computer',4.56
+),(
+    3,'ayaz','it',4.76
+    );
+#if you someone that they dont have a major.in this case we specified that what data to be inserted.
+INSERT INTO student(student_id,name,gpa) VALUES(
+    4,'shabir khan',4.55
+);
+
+
+
+#CRATING THE FIRST TABLE IN THE DB
+CREATE TABLE student(
+    stu_id INT AUTO_INCREMENT,
+    name VARCHAR (20) NOT NULL,
+    major VARCHAR (10),
+    PRIMARY KEY(stu_id)
+);
+#DESCRIBE THE STRUCTURE OF THE TABLE
+DESCRIBE student;
+#INSERTING DATA INTO THE TABLE STUDENT
+INSERT INTO student(name,major,_year) VALUES('shabir','biology',2023);
+#RETRIVE EVERYTHING FROM THE TABLE STUDENT
+SELECT * FROM student;
+#DELETE THE TALE FROM THE DB
+DROP TABLE student;
+#MANIPULATE THE TABLE TO ADD NEW COLUMN _YEAR AND _GPA
+ALTER TABLE student ADD _year NUMERIC;
+ALTER TABLE student ADD _gpa DECIMAL(3,2);
+#REMOVE THE COLUMN GPA FROM THE TABLE
+ALTER TABLE student DROP COLUMN _gpa;
+#UPDATE DATA IN THE TABLE STUDENT
+UPDATE student
+SET major='bio'
+WHERE major='biology';
+UPDATE student
+SET major='cs'
+WHERE major='computer';
+UPDATE student
+SET major='arts'
+WHERE stu_id=3;
